@@ -26,10 +26,9 @@ hubot-weixin:https://github.com/KasperDeng/Hubot-WeChat
 Hubot-weixin适配器提供了一个config.yaml文件，用来配置你的适配器，大部分配置项用于启动时登录所用。
 众所周知，目前微信网页版的登录是通过扫描二维码的方式。目前这部分工作需要用户手工来做。
 
-- 用chrome或者firefox的调试模式，扫描微信的二维码登录网页版一次。在调试模式下，从webwxinit api 抓取以下数据
+用chrome或者firefox的调试模式，扫描微信的二维码登录网页版一次。在调试模式下，从webwxinit api 抓取以下数据
 
-
-	  baseUrl
+    baseUrl
 		cookie
 		Uin
 		Sid
