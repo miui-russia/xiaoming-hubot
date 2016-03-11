@@ -5,15 +5,23 @@
 
 目前只集成了微信
 
-[hubot]: http://hubot.github.com
-[generator-hubot]: https://github.com/github/generator-hubot
-[hubot-weixin]:https://github.com/KasperDeng/Hubot-WeChat
+hubot: http://hubot.github.com
+
+generator-hubot: https://github.com/github/generator-hubot
+
+hubot-weixin:https://github.com/KasperDeng/Hubot-WeChat
 
 运行前请自行安装好redis
 
 ### 本地运行
 
-    bin/hubot
+    git clone https://github.com/xiaomingplus/xiaoming-hubot.git
+    
+    cd xiaoming-hubot/
+    
+    npm i
+
+    bin/hubot -a weixin
 
 
 输入 `bot help`.可以看到
