@@ -7,7 +7,7 @@ var request = require('request');
 var fs = require('fs');
 var wxApi = require ("../node_modules/hubot-weixin/src/wxApi.coffee");
 var WxBot = require ("../node_modules/hubot-weixin/src/wxbot.coffee");
-var scuinfoConfig = require('./scuinfo.config.json');
+var scuinfoConfig = require('../scuinfo.config.json');
 
 var wxbot = new WxBot();
 wxbot.getInit();
