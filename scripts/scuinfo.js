@@ -358,7 +358,7 @@ var subscribeScuinfo = function(msg){
           clearInterval(pushRoomById[roomId].timerId);
           var timerId = pushMessage(pushRoomById[roomId]);
           pushRoomById[roomId].timerId=timerId;
-          fs.writeFileSync('./scripts/scuinfo.config.json',JSON.stringify(scuinfoConfig));
+          fs.writeFileSync('./scuinfo.config.json',JSON.stringify(scuinfoConfig));
 
           console.log('更新主动推送');
           console.log(pushRoomById);
@@ -379,7 +379,7 @@ var subscribeScuinfo = function(msg){
             interval:interval*1000*60
           };
 
-          fs.writeFileSync('./scripts/scuinfo.config.json',JSON.stringify(scuinfoConfig));
+          fs.writeFileSync('./scuinfo.config.json',JSON.stringify(scuinfoConfig));
 
 
           if(_queues[roomId]){
@@ -472,7 +472,7 @@ var cancelSubscribeScuinfo = function(msg){
     //console.log(pushRoomById);
 
     //console.log(scuinfoConfig);
-    fs.writeFileSync('./scripts/scuinfo.config.json',JSON.stringify(scuinfoConfig));
+    fs.writeFileSync('./scuinfo.config.json',JSON.stringify(scuinfoConfig));
 
       delete pushRoomById[room];
 
