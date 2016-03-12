@@ -14,7 +14,7 @@ wxbot.getInit();
 wxbot.updateGroupList();
 wxbot.updateGroupMemberList();
 var groupInfo = wxbot.groupInfo;
-
+var botName = "小明";
 
 console.log(groupInfo);
 // 主动推送的群列表
@@ -493,7 +493,7 @@ var subscribeScuinfo = function(msg){
 
           console.log('更新主动推送');
           console.log(pushRoomById);
-          pushMessageOnce(pushRoomById[roomId],"["+groupInfo[roomId]+']群订阅scuinfo成功!推送间隔为'+interval+"分钟一次,没有更新则不推送,取消订阅请回复:bot 取消订阅 scuinfo,更新推送间隔请回复:bot 订阅 scuinfo 10");
+          pushMessageOnce(pushRoomById[roomId],"["+groupInfo[roomId]+']群订阅scuinfo成功!推送间隔为'+interval+"分钟一次,没有更新则不推送,取消订阅请回复:小明 取消订阅 scuinfo,更新推送间隔请回复:小明 订阅 scuinfo 10");
 
 
         }
@@ -559,9 +559,9 @@ var cancelSubscribeScuinfo = function(msg){
 var scuinfoHelp = function(msg){
 
   msg.send(`目前有3个口令\n
-  bot s  (获取一条scuinfo的热门帖子)\n
-  bot 订阅 scuinfo 10 (为本群订阅或更新一个间隔10分钟的scuinfo热门帖子推送)\n
-  bot 取消订阅 scuinfo (取消订阅scuinfo的热门推送)
+  ${botName} 说话  (获取一条scuinfo的热门帖子)\n
+  ${botName} 订阅 scuinfo 10 (为本群订阅或更新一个间隔10分钟的scuinfo热门帖子推送)\n
+  ${botName} 取消订阅 scuinfo (取消订阅scuinfo的热门推送)
   `)
 };
 
