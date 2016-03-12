@@ -33,8 +33,9 @@ var pushRoomById = {
 
 };
 
-Object.keys(groupInfo).forEach(function(k,v){
     Object.keys(pushRoomByName).forEach(function(k1){
+      Object.keys(groupInfo).forEach(function(k,v){
+
         if(groupInfo[k]==k1){
             pushRoomById[k]={
                 interval:pushRoomByName[k1].interval,
@@ -256,6 +257,72 @@ var updateData = function(opts,cb){
 
 };
 
+//检测群名称是否有变化
+var intervalCheckGroup = function(){
+
+  setInterval(function(){
+    //console.log('check');
+    var wxbot1 = new WxBot();
+    wxbot1.getInit();
+    wxbot1.updateGroupList();
+    wxbot1.updateGroupMemberList();
+    groupInfo = wxbot1.groupInfo;
+
+
+    Object.keys(pushRoomById).forEach(function(k){
+
+      if(pushRoomById[k].name != groupInfo[k]){
+        console.log(pushRoomById[k].name+'名字变了');
+        scuinfoConfig.pushRoomByName[groupInfo[k]] = scuinfoConfig.pushRoomByName[pushRoomById[k].name];
+
+        delete scuinfoConfig.pushRoomByName[pushRoomById[k].name];
+        fs.writeFileSync('./scuinfo.config.json',JSON.stringify(scuinfoConfig));
+
+        pushRoomById[k].name=groupInfo[k];
+
+
+
+      }else{
+        //console.log(pushRoomById[k].name+'没有变');
+      }
+
+
+    });
+
+    var flug = undefined;
+
+    var isChangedFlug = undefined;
+
+    Object.keys(scuinfoConfig.pushRoomByName).forEach(function(k1){
+      flug=0;
+      Object.keys(groupInfo).forEach(function(k2){
+        if(groupInfo[k2]==k1){
+          flug = 1
+        }
+
+      });
+
+      if(flug==0){
+        console.log('没有这个群了'+k1);
+        delete scuinfoConfig.pushRoomByName[k1];
+        isChangedFlug = 1;
+      }
+
+    });
+
+    if(isChangedFlug){
+      fs.writeFileSync('./scuinfo.config.json',JSON.stringify(scuinfoConfig));
+    }else{
+      //console.log('没有任何改变');
+    }
+
+
+
+  },1000*60);
+
+
+
+};
 
 var init = function(){
 //更新数据
@@ -274,6 +341,8 @@ var init = function(){
       });
       console.log('主动推送注册成功');
       //console.log(pushRoomById);
+
+      intervalCheckGroup();
     }
   });
 };
