@@ -571,7 +571,7 @@ module.exports = function(robot) {
 
     scuinfoHelp(msg);
   });
-    robot.respond(/s$|i$|info$|scuinfo$/i, function (msg) {
+    robot.respond(/s$|i$|info$|scuinfo$|说话$/i, function (msg) {
         getScuinfoHot(msg);
     });
 
