@@ -14,7 +14,7 @@ wxbot.getInit();
 wxbot.updateGroupList();
 wxbot.updateGroupMemberList();
 var groupInfo = wxbot.groupInfo;
-var botName = "小明";
+var botName = "xm";
 
 console.log(groupInfo);
 // 主动推送的群列表
@@ -493,7 +493,7 @@ var subscribeScuinfo = function(msg){
 
           console.log('更新主动推送');
           console.log(pushRoomById);
-          pushMessageOnce(pushRoomById[roomId],"["+groupInfo[roomId]+']群订阅scuinfo成功!推送间隔为'+interval+"分钟一次,没有更新则不推送,取消订阅请回复:小明 取消订阅 scuinfo,更新推送间隔请回复:小明 订阅 scuinfo 10");
+          pushMessageOnce(pushRoomById[roomId],"["+groupInfo[roomId]+']群订阅scuinfo成功!推送间隔为'+interval+"分钟一次,没有更新则不推送,取消订阅请回复:xm 取消订阅 scuinfo,更新推送间隔请回复:xm 订阅 scuinfo 10");
 
 
         }
